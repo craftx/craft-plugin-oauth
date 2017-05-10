@@ -1,11 +1,14 @@
 <?php
 namespace craftx\oauth\services;
 
+use craftx\oauth\providers\OauthGithubProvider;
 use League\OAuth2\Client\Provider\Github;
 use League\OAuth2\Client\Token\AccessToken;
 
 use Craft;
 use craft\base\Component;
+
+use function craftx\oauth\oauth;
 
 /**
  * Class OauthService
@@ -16,11 +19,7 @@ class OauthService extends Component
 {
     public function github()
     {
-        $provider = new Github([
-            'clientId' => 'ebe93156f5f810852f77',
-            'clientSecret' => 'd7f33e80087a4514780cb94a888d20166cd277d2',
-            'redirectUri' => 'http://craft3.dev/actions/oauth/authentication/github'
-        ]);
+        (new Github(oauth()->settings->getGithubProviderOptions()))->
 
         $code         = Craft::$app->getRequest()->getQueryParam('code');
         $state        = Craft::$app->getRequest()->getQueryParam('state');

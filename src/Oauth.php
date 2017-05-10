@@ -15,7 +15,8 @@ use craftx\oauth\services\OauthService;
  *
  * @package craftx\oauth
  *
- * @property OauthService $service
+ * @property OauthSettings $settings
+ * @property OauthService  $service
  */
 class Oauth extends Plugin
 {
@@ -41,4 +42,13 @@ class Oauth extends Plugin
     {
         return OauthTemplateComponent::class;
     }
+}
+
+
+/**
+ * @return Oauth
+ */
+function oauth()
+{
+    return Craft::$app->loadedModules[Oauth::class] ?? null;
 }
