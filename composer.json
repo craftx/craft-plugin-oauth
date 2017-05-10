@@ -1,0 +1,35 @@
+{
+    "name": "craftx/oauth",
+    "version": "1.0.0",
+    "description": "Oauth plugin for CraftX",
+    "type": "craft-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CraftX",
+            "email": "support@craftx.io"
+        }
+    ],
+    "extra": {
+        "name": "CraftX Oauth",
+        "handle": "oauth",
+        "class": "craftx\\oauth\\Oauth",
+        "schemaVersion": "1.0.0",
+        "developer": "CraftX",
+        "developerUrl": "https://craftx.io",
+        "hasSettings": true,
+        "hasCpSection": false,
+        "components": {
+            "service": "craftx\\oauth\\services\\OauthService"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "craftx\\oauth\\": "src/"
+        }
+    },
+    "require": {
+        "league/oauth2-client": "^2.2",
+        "league/oauth2-github": "^2.0"
+    }
+}
